@@ -1,0 +1,201 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bg-body: #2F2F33;
+    --bg-input: #06181C;
+    --txt-search: #7C7C8A;
+    --btn-search: #065E7C;
+    --line-one: #065E7C;
+    --line: rgba(6, 22, 27, 50%);
+    --txt-remove: #F75A68;
+    --txt-table: #E1E1E6;
+    --btn-white: #ffffff;
+    --bg-line: #06181C;
+    --ff-body: "Roboto", sans-serif;;
+    font-size: 62.5%;
+}
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden; /*faz o conteúdo caber dentro, sem vazar*/
+    clip: rect(0, 0, 0, 0); /*cria um retangulo nulo*/
+    white-space: nowrap; /*Não faz quebra de linha do texto*/
+    border-width: 0;
+}
+body{
+    background: var(--bg-body);
+}
+body *{
+    font-family: var(--ff-body);
+}
+#app{
+    width: 112rem;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8rem;
+}
+.search{
+    display: flex;
+    align-items: center;
+}
+.search input{
+    color: var(--txt-search);
+    width: 46rem;
+    height: 4.8rem;
+    background-color: var(--bg-input);
+    padding: 1.2rem;
+    border: none;
+    border-radius: .8rem;
+    margin-right: .8rem;
+    font-size: 1.6rem;
+}
+.search input::placeholder {
+    color: var(--text-search); /* Cor do placeholder */
+    opacity: 1; /* Opacidade do placeholder */
+}
+.search button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 17rem;
+    height: 4.8rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding: 1.2rem;
+    border-radius: .8rem;
+    gap: .8rem;
+    border: none;
+    background-color: var(--btn-search);
+    color: var(--txt-table);
+    cursor: pointer;
+}
+.search button:hover{
+    background-color: var(--btn-white);
+    color: var(--btn-search);
+}
+/*MUDA A IMG DO BUTTON QUANDO PASSAR O MOUSE*/
+.search button:hover img {
+    content: url('../assets/star-blue.svg');
+}
+/*TABELAS MAIN*/
+.tabela-container{
+    overflow-y: auto;
+}
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    color: var(--txt-table);
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 1.6rem 1.6rem 0 0;
+    overflow: hidden;
+    border: 0.1rem solid #4A808C;
+}
+.noFav {
+    background: var(--bg-input);
+    height: 30rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    border-radius: 0 0 1.6rem 1.6rem;
+}
+.noFav h2 {
+    font-weight: 700;
+    font-size: 4rem;
+    color: #4E5455;
+}
+.hide {
+    display: none;
+}
+
+/*PRIMEIRA LINHA*/
+th{
+    background: var(--line-one);
+    text-align: center;
+    font-weight: 550;
+}
+
+td{
+    border: none;
+    border-bottom: 0.1rem solid #4A808C;
+}
+
+td, th {
+    width: auto;
+    padding: 2rem;
+    text-align: center;    
+}
+
+td:first-child, th:first-child {
+    text-align: left;
+    width: 50.4rem; /* Largura maior para a primeira coluna */
+}
+
+table tr:last-child td:first-child {
+    border-radius: 0 0 0 1.6rem; /* Canto inferior esquerdo */
+}
+
+table tr:last-child td:last-child {
+    border-radius: 0 0 1.6rem 0; /* Canto inferior direito */
+}
+/*deixar as linhas com cores diferentes - edd = impar*/
+
+table tr:nth-child(odd) {
+    background: var(--line); /*ímpares */    
+}
+
+table tr:nth-child(even) {
+    background: var(--bg-line); /*pares */
+}
+
+
+
+.user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user img{
+    width: 5rem;
+    height: 5rem;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.user a{
+    text-decoration: none;
+    color: var(--txt-table);
+}
+
+.user a p{
+    color: var(--txt-table);
+    font-weight: bold;
+}
+.user span{
+    font-weight: normal;
+}
+.remove{
+    background: none;
+    border: none;
+    color: var(--txt-remove);
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
