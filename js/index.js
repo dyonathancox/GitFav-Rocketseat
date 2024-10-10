@@ -1,7 +1,5 @@
 import { GithubUser } from "./GithubUser.js"
 
-// classe que vai conter a lógica dos dados 
-// como os dados serão estruturados
 export class Favorites {
     constructor(root) {
         this.root = document.querySelector(root);
@@ -56,7 +54,7 @@ export class FavoritesView extends Favorites {
         super(root); // chama o primeiro construtor e entra do primeiro this.root
 
         this.tbody = this.root.querySelector('table tbody');
-        this.noFavMessage = this.root.querySelector('.noFav'); // Seleciona a mensagem de "Nenhum favorito ainda"
+        this.noFavMessage = this.root.querySelector('.noFav');
 
         this.update();
         this.onAdd();
@@ -74,11 +72,11 @@ export class FavoritesView extends Favorites {
         this.removeAllTr();  
     
         if (this.entries.length === 0) {
-            this.noFavMessage.classList.remove('hide'); // Exibe a mensagem se não houver favoritos
-            this.tbody.style.display = 'none'; // Esconde o corpo da tabela
+            this.noFavMessage.classList.remove('hide');
+            this.tbody.style.display = 'none';
         } else {
-            this.noFavMessage.classList.add('hide'); // Esconde a mensagem se houver favoritos
-            this.tbody.style.display = 'table-row-group'; // Mostra o corpo da tabela
+            this.noFavMessage.classList.add('hide'); // Esconde se tiver favoritos
+            this.tbody.style.display = 'table-row-group';
     
             this.entries.forEach(user => {
                 const row = this.createRow();
@@ -138,7 +136,7 @@ export class FavoritesView extends Favorites {
             this.noFavMessage.classList.remove('hide');
             this.tbody.style.display = 'none';
         } else {
-            this.noFavMessage.classList.add('hide'); // Esconde a mensagem se houver favoritos
+            this.noFavMessage.classList.add('hide'); // Esconde a mensagem se tiver alguma linha
             this.tbody.style.display = 'table-row-group';
         }
     }
